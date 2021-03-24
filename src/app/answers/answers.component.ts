@@ -9,7 +9,13 @@ import { WordType } from '../data/models';
 export class AnswersComponent implements OnInit {
 
   @Input() title?: string
-  @Input() words?: WordType[]
+  words: WordType[] = []
+
+  @Input() set word(word:WordType| null) {
+    if(word){
+      this.words.push(word)
+    }
+  }
 
   constructor() { }
 
